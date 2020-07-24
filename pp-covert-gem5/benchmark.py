@@ -181,6 +181,8 @@ if __name__ == '__main__':
          (2000000, 800000, 800000),
          (1000000, 400000, 400000)
          ][0:2])
+    print([(2000000, 800000, 800000),(1000000, 400000, 400000)][0:2])
+    print(list(data))
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     print(base_dir)

@@ -117,14 +117,14 @@ void init_default(struct config *config, int argc, char **argv);
 #define CACHE_SETS_L1       64
 #define CACHE_SETS_L1_MASK  (CACHE_SETS_L1 - 1)
 #define CACHE_WAYS_L1       8
-#define CACHE_WAYS_L2       8
+#define CACHE_WAYS_L2       4
 
 // LLC
 
-#define LOG_CACHE_SETS_L3   15
-#define CACHE_SETS_L3       32768
+#define LOG_CACHE_SETS_L3   14
+#define CACHE_SETS_L3       16384
 #define CACHE_SETS_L3_MASK  (CACHE_SETS_L3 - 1)
-#define CACHE_WAYS_L3       20
+#define CACHE_WAYS_L3       16
 
 // =======================================
 // Covert Channel Default Configuration

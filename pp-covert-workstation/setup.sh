@@ -1,5 +1,5 @@
 #! /usr/bin/env /bin/bash 
-echo 32 | sudo tee /proc/sys/vm/nr_hugepages
+echo 32 | dzdo tee /proc/sys/vm/nr_hugepages
 
 
 # Disabling hyper-threading
