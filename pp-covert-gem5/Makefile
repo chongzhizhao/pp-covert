@@ -1,4 +1,4 @@
-CFLAGS=-O1 -I /usr/local -fPIC -std=c99
+CFLAGS=-O1 -I /usr/local -fPIC -std=gnu99
 CC=gcc
 
 TARGETS=sender receiver sender_debug receiver_debug
