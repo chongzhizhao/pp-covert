@@ -8,26 +8,28 @@ import numpy
 import json
 
 class channel_benchmark():
+
     def __init__(self, tests, runsPerTest=10, timeBetweenRuns=1,
                  senderCore=0, readerCore=2,
                  channelArgs=["interval", "primeTime", "accessTime"]):
 
-        self.sender = ['taskset', '-c', str(senderCore),
-                       sender_bin, "-b"]
-        print(self.sender)
         self.resultFile = os.path.join(result_dir, "llc-pp.json")
         try:
             os.mkdir(result_dir)
         except (OSError):
             pass
 
+        self.sender = ['taskset', '-c', str(senderCore),
+                       sender_bin, "-b"]
+        print(self.sender)
         self.reader = ['taskset', '-c', str(readerCore),
                        reader_bin, "-b"]
-        
+        print(self.reader)
         self.cool_down = timeBetweenRuns
         self.channelArgs = channelArgs 
         self.runs = runsPerTest
         self.tests = tests
+        print("Initialization completed!")
 
     def readChannelFile(self, f):
         if os.path.isfile(f):
@@ -171,7 +173,9 @@ class channel_benchmark():
         return max(contents[key]) * bitsPerSec
    
     def benchmark(self):
+        print("Get prepared...")
         for test in self.tests:
+            print(test)
             self.doTest(test)
 
 if __name__ == '__main__':
@@ -181,7 +185,6 @@ if __name__ == '__main__':
          (2000000, 800000, 800000),
          (1000000, 400000, 400000)
          ][0:2])
-    print([(2000000, 800000, 800000),(1000000, 400000, 400000)][0:2])
     print(list(data))
 
     base_dir = os.path.dirname(os.path.abspath(__file__))

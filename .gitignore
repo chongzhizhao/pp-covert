@@ -1,0 +1,9 @@
+*.pyc
+*.o
+sender
+sender_debug
+receiver
+receiver_debug
+pp-llc-send
+pp-llc-recv
+llc-results
