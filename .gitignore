@@ -7,3 +7,4 @@ receiver_debug
 pp-llc-send
 pp-llc-recv
 llc-results
+*.swp
