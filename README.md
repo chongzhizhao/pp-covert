@@ -2,6 +2,9 @@
 
 ## gem5 Implementation
 
+## 2015 MacBook Pro Implementation
+To make it work, kill big processes, especially Google Chrome, and turn off hyperthreading.
+
 ## Workstation Implementation
 
 ## Ackowledgement
