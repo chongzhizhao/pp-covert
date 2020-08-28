@@ -11,7 +11,7 @@ void init_config(struct config *config, int argc, char **argv) {
 
     if (config->channel == PrimeProbe) {
         int L3_way_stride = ipow(2, LOG_CACHE_SETS_L3 + LOG_CACHE_LINESIZE);
-        uint64_t bsize = 8 * CACHE_WAYS_L3 * L3_way_stride;
+        uint64_t bsize = 1 * CACHE_WAYS_L3 * L3_way_stride;
 
         // Allocate a buffer of the size of the LLC
         // config->buffer = malloc((size_t) bsize);
@@ -26,9 +26,9 @@ void init_config(struct config *config, int argc, char **argv) {
         // Construct the addr_set by taking the addresses that have cache set index 0
         uint32_t addr_set_size = 0;
         for (int set_index = 0; set_index < CACHE_SETS_L3; set_index++) {
-            for (uint32_t line_index = 0; line_index < 8 * CACHE_WAYS_L3; line_index++) {
+            for (uint32_t line_index = 0; line_index < 1 * CACHE_WAYS_L3; line_index++) {
                 // a simple hash to shuffle the lines in physical address space
-                uint32_t stride_idx = (line_index * 167 + 13) % (8 * CACHE_WAYS_L3);
+                uint32_t stride_idx = (line_index * 167 + 13) % (1 * CACHE_WAYS_L3);
                 ADDR_PTR addr = (ADDR_PTR) (config->buffer + \
                         set_index * CACHE_LINESIZE + stride_idx * L3_way_stride);
                 // both of following function should work...L3 is a more restrict set
